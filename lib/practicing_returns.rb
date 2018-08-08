@@ -2,19 +2,12 @@ require 'pry'
 
 def hello(array)
   i = 0
+  collection=[]
   while i < array.length
-    binding.pry
-    yield(array[i])
+    collection << yield(array[i])
     i += 1
   end
-  new_array
+  collection
 end
 
-new_array=[]
 hello(["Tim", "Tom", "Jim"]) { |name| "Hi, #{name}" }
-
-hello(["Tim", "Tom", "Jim"]) do |name| 
-  new_array << "Hi, #{name}" 
-  new_array
-end
-array
